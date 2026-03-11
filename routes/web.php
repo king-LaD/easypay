@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TransactionController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/payment/{ref_externe}', [TransactionController::class, 'showCheckout'])->name('payment.checkout');
+Route::post('/validation', [TransactionController::class, 'showRecap'])->name('payment.recap');
