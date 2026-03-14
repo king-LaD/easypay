@@ -3,14 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
 class Transaction extends Model
 {
-    protected $guarded [
-        'id'
+    use HasUuids;
+
+    protected $guarded = [
+        'id',
         'ref_externe',
         'campay_id',
         'monnaie',
-        'status'
+        'status',
     ];
 }
